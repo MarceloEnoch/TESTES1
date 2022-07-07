@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Primeiro.API.Data;
 
 namespace Primeiro.API
 {
@@ -26,7 +28,13 @@ namespace Primeiro.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<DataContext>(
+                // o parametro é o parametro esperado no dbcontext, é bom fazer referencia ao banco de dados
+                context => context.UseSqlite(
+                    // uso o configuration que tem acesso ao appsettings.json
+                    Configuration.GetConnectionString("Default")
+                )
+            );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
