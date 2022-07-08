@@ -1,0 +1,28 @@
+ <h1>Eventos de Components!</h1>
+
+ <!-- <p>{{evento.Tema}}</p>
+ <p>{{evento.Local}}</p> -->
+
+ <!-- <p> Tema: {{eventos[0].Tema}}</p>
+ <p>Local: {{eventos[0].Local}}</p> e iria assim infinitamente... -->
+
+<!-- <div *ngFor="let item of eventos">
+  <p> <b> Tema: </b>{{item.Tema}}</p>
+  <p> <b> Local: </b>{{item.Local}}</p>
+  <hr>
+</div> -->
+
+<!-- Agora vamos tentar usar o   ngOnInit() -->
+<!-- <div *ngFor="let item of eventos">
+  <p> <b> Tema: </b>{{item.Tema}}</p>
+  <p> <b> Local: </b>{{item.Local}}</p>
+  <hr>
+</div> -->
+
+<!-- O problema até agora é que o front não está se comunicando com o back, ou seja, com a API. hora de mudar isso -->
+<div *ngFor="let item of eventos">
+  <p> <b> Tema: </b>{{item.tema}}</p>
+  <p> <b> Local: </b>{{item.local}}</p>
+  <hr>
+</div>
+

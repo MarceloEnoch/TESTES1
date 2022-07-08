@@ -11,7 +11,7 @@ namespace Primeiro.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventoController : ControllerBase
+    public class EventosController : ControllerBase
     {
       //public IEnumerable<Evento> _evento =  new Evento[]{
            /*
@@ -20,7 +20,7 @@ namespace Primeiro.API.Controllers
            */
        // };
         private readonly DataContext _contexto; // initialize fild from parameter
-        public EventoController(DataContext contexto)
+        public EventosController(DataContext contexto)
         {
             _contexto = contexto;
          

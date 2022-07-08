@@ -36,6 +36,10 @@ namespace Primeiro.API
                 )
             );
             services.AddControllers();
+            
+             //Configurando o Cors dessa api / server
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Primeiro.API", Version = "v1" });
@@ -57,6 +61,11 @@ namespace Primeiro.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Configurando o Cors dessa api / server
+            app.UseCors(acesso => acesso.AllowAnyHeader()
+                                                              .AllowAnyMethod()
+                                                              .AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {
